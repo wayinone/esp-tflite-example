@@ -1,0 +1,8 @@
+build/
+managed_components
+
+**/*credentials*
+**/*credential*
+src/include/my_credential.h
+
+python_code/environment
