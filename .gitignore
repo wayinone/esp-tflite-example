@@ -6,3 +6,4 @@ managed_components
 src/include/my_credential.h
 
 python_code/environment
+python_code/src/__pycache__

@@ -12,5 +12,6 @@
     ],
     "idf.port": "/dev/tty.usbserial-FTB6SPL3",
     "idf.pythonBinPath": "/Users/wayinone/.espressif/python_env/idf5.3_py3.10_env/bin/python",
-    "idf.toolsPath": "/Users/wayinone/.espressif"
+    "idf.toolsPath": "/Users/wayinone/.espressif",
+    "idf.flashType": "UART"
 }

@@ -33,3 +33,8 @@ Below is short explanation of remaining files in the project folder.
 ```
 Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
 They are not used or needed when building with CMake and idf.py.
+
+
+## Settings in kconfig.projbuild
+* check for `Support for external, SPI-connected RAM`
+* Camera Configuration -> Select Camera Pinout -> `ESP32-CAM by AI-Thinker`
