@@ -1,12 +1,22 @@
-## Python Code to generate Tensorflow model and create C array for esp32 device
+# Generate Model from Tensorflow
+This folder contains Python code to:
+1. Generate tflite (TensorflowLite) model from Tensorflow
+2. create C array and header file from the tflite model for esp32 device
 
-### Create Python virtual environment (under `python_code/environment`)
+## How to run the python code here:
+This section describe how to run the code here. It will:
+1. Generate tflite (TensorflowLite) model from Tensorflow,
+   * and save into `./model_output` directory.
+2. create C array and header file,
+   * and save into `../main` directory, which is part of esp-idf build.
+   
+### 1. Create Python virtual environment (under `python_code/environment`)
 Running the following command under folder `python_code`
 ```
 sh script/create_venv.sh
 ```
 
-### Create model C array and header file
+### 2. Create model C array and header file
 Running the following command under folder `python_code`
 
 ```
@@ -19,8 +29,9 @@ Note this command will create the following:
    * model C array: `main/include/model/model.cc`
    * header file: `main/include/model/model.h`
 
-### Viewing tflite model
+### 3. Viewing tflite model
 Once the model file generated, one can view the model with:
 ```
 netron model_output/model.tflite  
 ```
+Viewing the model with `netron` is neccessary to determine which operator to use in esp-tflite-micro package (in eps-idf build)
