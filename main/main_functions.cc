@@ -96,7 +96,6 @@ void setup() {
 
 
 void loop() {
-  // cast_uint8_arr_to_float32_arr(image_data, size, input->data.f);
   for (int i = 0; i < input_length; i++) {
     input->data.int8[i] = image_data[i] ^ 0x80;
   }
