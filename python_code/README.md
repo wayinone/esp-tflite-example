@@ -35,3 +35,8 @@ Once the model file generated, one can view the model with:
 netron model_output/model.tflite  
 ```
 Viewing the model with `netron` is neccessary to determine which operator to use in esp-tflite-micro package (in eps-idf build)
+
+### Debug with esp prog
+1. connect the esp prog with usb
+2. run the command in ESP_IDF TERMINAL `idf.py openocd`
+3. Click the debug button on the left panel of vs code

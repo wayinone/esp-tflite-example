@@ -1,15 +1,39 @@
+// see https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/DEBUGGING.md
+// also see https://www.youtube.com/watch?v=uq93H7T7cOQ
 {
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "gdbtarget",
-      "request": "attach",
-      "name": "Eclipse CDT GDB Adapter"
-    },
-    {
-      "type": "espidf",
-      "name": "Launch",
-      "request": "launch"
+      "name": "ESP32 OpenOCD",
+      "type": "cppdbg",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/build",
+      "program": "${workspaceFolder}/build/${command:espIdf.getProjectName}.elf",
+      "miDebuggerPath": "${command:espIdf.getToolchainGdb}",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set target to remote",
+          "text": "target remote :3333",
+          "ignoreFailures": false
+        },
+        {
+          "text": "set remote hardware-breakpoint-limit 2",
+        },
+        {
+          "description": "Reset the target",
+          "text": "monitor reset halt",
+          "ignoreFailures": false
+        },
+        {
+          "description": "force gdb to flush its internal register cache",
+          "text": "flushregs"
+        }
+      ],
     }
   ]
 }
