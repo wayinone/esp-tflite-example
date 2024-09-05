@@ -3,15 +3,20 @@ This repo is to provide a bare minimum code to embed a tflite model into esp32 d
 
 In the meantime I discover there is a bug in the official `esp-tflite-micro` for the fully connected layer (in Tensorflow or Keras, this is `Dense` layer). The issue and solution are discussed in this read me.
 
+The example provide here can also be debug by ESP Prog. One can check the "Debug of Esp prog" section for more detail.
+
 ## esp-idf code
 In `main` folder you can find the code that reproduce the error. The code is trying to mimic the layout of the official example [person_detection](https://github.com/espressif/esp-tflite-micro/tree/master/examples/person_detection). I can run all 3 official example successfully on my device. 
 
 Here is the brief description of the process in the `main` (which calls `main_functions.cc`):
 1. Initiate tflite interpreter in `setup()` with the model located in `./main/include/model`
-   * The input of the model should be a 32x96x1 (H x W x Channels) grayscal image, with dtype as uint8
+   * The input of the model should be a 32x96x1 (H x W x Channels) grayscale image, with dtype as uint8
 2. In the `loop()`
    * grab the image from `./main/test_image/image_data.c`
    * invoke the interpreter for prediction 
+
+### The `component` folder
+The component folder put a customized `espressif__esp-tflite-micro v1.3.1` code. The distribution, license and usage of the code is under Espressif original [esp-tflite-micro](https://github.com/espressif/esp-tflite-micro)
 
 ## Build and Flash ESP Device
 Check the Configuration section on how I run esp-idf frame work on vs code. The build and flash is through the usual 
@@ -82,7 +87,7 @@ i.e.
 ## Configuration
 
 #### ESP Device
-esp32-cam (ESP32-CAM by AI Thinker). In PlatformIO's esp-idf extension, the target is `espe32`
+esp32-cam (ESP32-CAM by AI Thinker). In PlatformIO's esp-idf extension, the target is `esp32`
 
 #### IDE
 I am building this esp-idf project on PlatformIO, with esp-idf extension.
